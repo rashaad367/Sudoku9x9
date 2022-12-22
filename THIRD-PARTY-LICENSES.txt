@@ -1,0 +1,14 @@
+Library name: JQuery
+Version: 3.6.0
+License: MIT License
+License Link: https://github.com/jquery/jquery/blob/main/LICENSE.txt
+
+Library name: spectrum
+Version: 1.8.1
+License: MIT License
+License Link: https://github.com/bgrins/spectrum/blob/master/LICENSE
+
+Library name: TinyColor
+Version: 1.6.0
+License: MIT License
+License Link: https://github.com/bgrins/TinyColor/blob/master/LICENSE
