@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Menu</title>
+    
+    <!--jquery and plugins-->
+    <!--plugins: colorpicker, tinycolor-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src='spectrum.js'></script>
+    <link rel='stylesheet' href='spectrum.css'/>
+    <script src="tinycolor.js"></script>
+
+    <!--scripts/css-->
+    <script src="sudoku-menu.js"></script>
+    <link rel="stylesheet" href="sudoku-menu.css"/>
+</head>
+<body>
+    <h1>Sudoku</h1>
+    <hr>
+    <h2>Main menu</h2>
+    <div id="menu">
+        <h3>Difficulty:</h3>
+        <button class="diff" id="easy">Easy</button>
+        <button class="diff" id="med">Medium</button>
+        <button class="diff" id="hard">Hard</button>
+        <h3>Board color:</h3>
+        <button class="chg-color-btn" id="chg-color-btn">Change color</button>
+        <input type="text" id="custom"/>
+        <h3>Guide</h3>
+        <button>How to play</button>
+        <h3>Play</h3>
+        <button>Start game</button>
+    </div>    
+</body>
+</html>
