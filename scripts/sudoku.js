@@ -217,48 +217,46 @@ function setBoard() {
     board[randomRow][randomCol] = '-';
 }
 
-// cookie getter
-// if the name is found within all currently set cookies on the site
-// then the cookie is retrieved
-function getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) return parts.pop().split(";").shift();
-}
-
 // using cookies to change board color
 $(document).ready(function() {
-    window.onload = function() {
-        if (getCookie("#f5f5f5") == "enabled") {
+    // cookie getter
+    // if the name is found within all currently set cookies on the site
+    // then the cookie is retrieved
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+
+    if (getCookie("#f5f5f5") == "enabled") {
                 //$("#board").css("background-color","#f5f5f5");
                 //$(".tile-start").css("background-color","#f5f5f5");
-        } else if (getCookie("#d3d3d3") == "enabled") {
+    } else if (getCookie("#d3d3d3") == "enabled") {
                 //document.querySelector("#board").style.background = "#d3d3d3";
                 //document.querySelector(".tile-start").style.background = "#d3d3d3";
-        } else if (getCookie("#ffebcd") == "enabled") {
+    } else if (getCookie("#ffebcd") == "enabled") {
                 //document.querySelector("#board").style.background = "#ffebcd";
                 //document.querySelector(".tile-start").style.background = "#ffebcd";
-        } else if (getCookie("#778899") == "enabled") {
+    } else if (getCookie("#778899") == "enabled") {
                 //document.querySelector("#board").style.background = "#778899";
                 //document.querySelector(".tile-start").style.background = "#778899";
-        } else if (getCookie("#c0c0c0") == "enabled") {
+    } else if (getCookie("#c0c0c0") == "enabled") {
                 $("#board").css("background-color","#c0c0c0");
                 $(".tile-start").css("background-color","#c0c0c0");
-        } else if (getCookie("#f08080") == "enabled") {
+    } else if (getCookie("#f08080") == "enabled") {
                 //document.querySelector("#board").style.background = "#f08080";
                 //document.querySelector(".tile-start").style.background = "#f08080";
-        } else if (getCookie("#fafad2") == "enabled") {
+    } else if (getCookie("#fafad2") == "enabled") {
                 //document.querySelector("#board").style.background = "#fafad2";
                 //document.querySelector(".tile-start").style.background = "#fafad2";
-        } else if (getCookie("#90ee90") == "enabled") {
+    } else if (getCookie("#90ee90") == "enabled") {
                 //document.querySelector("#board").style.background = "#90ee90";
                 //document.querySelector(".tile-start").style.background = "#90ee90";
-        } else if (getCookie("#add8e6") == "enabled") {
+    } else if (getCookie("#add8e6") == "enabled") {
                 //document.querySelector("#board").style.background = "#add8e6";
                 //document.querySelector(".tile-start").style.background = "#add8e6";
-        } else if (getCookie("#deb887") == "enabled") {
+    } else if (getCookie("#deb887") == "enabled") {
                 //document.querySelector("#board").style.background = "#deb887";
                 //document.querySelector(".tile-start").style.background = "#deb887";
-        }
     }
 });
