@@ -243,6 +243,7 @@ $(document).ready(function() {
     } else if (getCookie("#c0c0c0") == "enabled") {
         $("#board").css("background-color","#c0c0c0");
         $(".tile-start").css("background-color","#c0c0c0");
+        console.log($("#board"));
     } else if (getCookie("#f08080") == "enabled") {
         $("#board").css("background-color","#f08080");
         $(".tile-start").css("background-color","#f08080");
