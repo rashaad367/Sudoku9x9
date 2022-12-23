@@ -228,7 +228,7 @@ function getCookie(name) {
 
 // using cookies to change board color
 $(document).ready(function() {
-    $(document).mousemove(function() {
+    $("#start-game-button").click(function() {
         if (getCookie("#f5f5f5") == "enabled") {
             //$("#board").css("background-color","#f5f5f5");
             //$(".tile-start").css("background-color","#f5f5f5");
