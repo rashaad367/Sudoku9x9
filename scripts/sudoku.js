@@ -228,33 +228,33 @@ function getCookie(name) {
 
 // using cookies to change board color
 if (getCookie("#f5f5f5") == "enabled") {
-    document.querySelector("#board").style.color = "#f5f5f5";
-    document.querySelector(".tile-start").style.color = "#f5f5f5";
+    document.querySelector("#board").style.background = "#f5f5f5";
+    document.querySelector(".tile-start").style.background = "#f5f5f5";
 } else if (getCookie("#d3d3d3") == "enabled") {
-    document.querySelector("#board").style.color = "#d3d3d3";
-    document.querySelector(".tile-start").style.color = "#d3d3d3";
+    document.querySelector("#board").style.background = "#d3d3d3";
+    document.querySelector(".tile-start").style.background = "#d3d3d3";
 } else if (getCookie("#ffebcd") == "enabled") {
-    document.querySelector("#board").style.color = "#ffebcd";
-    document.querySelector(".tile-start").style.color = "#ffebcd";
+    document.querySelector("#board").style.background = "#ffebcd";
+    document.querySelector(".tile-start").style.background = "#ffebcd";
 } else if (getCookie("#778899") == "enabled") {
-    document.querySelector("#board").style.color = "#778899";
-    document.querySelector(".tile-start").style.color = "#778899";
+    document.querySelector("#board").style.background = "#778899";
+    document.querySelector(".tile-start").style.background = "#778899";
 } else if (getCookie("#c0c0c0") == "enabled") {
-    document.querySelector("#board").style.color = "#c0c0c0";
-    document.querySelector(".tile-start").style.color = "#c0c0c0";
+    document.querySelector("#board").style.background = "#c0c0c0";
+    document.querySelector(".tile-start").style.background = "#c0c0c0";
 } else if (getCookie("#f08080") == "enabled") {
-    document.querySelector("#board").style.color = "#f08080";
-    document.querySelector(".tile-start").style.color = "#f08080";
+    document.querySelector("#board").style.background = "#f08080";
+    document.querySelector(".tile-start").style.background = "#f08080";
 } else if (getCookie("#fafad2") == "enabled") {
-    document.querySelector("#board").style.color = "#fafad2";
-    document.querySelector(".tile-start").style.color = "#fafad2";
+    document.querySelector("#board").style.background = "#fafad2";
+    document.querySelector(".tile-start").style.background = "#fafad2";
 } else if (getCookie("#90ee90") == "enabled") {
-    document.querySelector("#board").style.color = "#90ee90";
-    document.querySelector(".tile-start").style.color = "#90ee90";
+    document.querySelector("#board").style.background = "#90ee90";
+    document.querySelector(".tile-start").style.background = "#90ee90";
 } else if (getCookie("#add8e6") == "enabled") {
-    document.querySelector("#board").style.color = "#add8e6";
-    document.querySelector(".tile-start").style.color = "#add8e6";
+    document.querySelector("#board").style.background = "#add8e6";
+    document.querySelector(".tile-start").style.background = "#add8e6";
 } else if (getCookie("#deb887") == "enabled") {
-    document.querySelector("#board").style.color = "#deb887";
-    document.querySelector(".tile-start").style.color = "#deb887";
+    document.querySelector("#board").style.background = "#deb887";
+    document.querySelector(".tile-start").style.background = "#deb887";
 }
