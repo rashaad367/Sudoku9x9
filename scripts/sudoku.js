@@ -228,35 +228,35 @@ $(document).ready(function() {
         if (parts.length == 2) return parts.pop().split(";").shift();
     }
 
-    if (getCookie("#f5f5f5") == "enabled") {
-                //$("#board").css("background-color","#f5f5f5");
-                //$(".tile-start").css("background-color","#f5f5f5");
+     if (getCookie("#f5f5f5") == "enabled") {
+        $("#board").css("background-color","#f5f5f5");
+        $(".tile-start").css("background-color","#f5f5f5");
     } else if (getCookie("#d3d3d3") == "enabled") {
-                //document.querySelector("#board").style.background = "#d3d3d3";
-                //document.querySelector(".tile-start").style.background = "#d3d3d3";
+        $("#board").css("background-color","#d3d3d3");
+        $(".tile-start").css("background-color","#d3d3d3");
     } else if (getCookie("#ffebcd") == "enabled") {
-                //document.querySelector("#board").style.background = "#ffebcd";
-                //document.querySelector(".tile-start").style.background = "#ffebcd";
+        $("#board").css("background-color","#ffebcd");
+        $(".tile-start").css("background-color","#ffebcd");
     } else if (getCookie("#778899") == "enabled") {
-                //document.querySelector("#board").style.background = "#778899";
-                //document.querySelector(".tile-start").style.background = "#778899";
+        $("#board").css("background-color","#778899");
+        $(".tile-start").css("background-color","#778899");
     } else if (getCookie("#c0c0c0") == "enabled") {
-                $("#board").css("background-color","#c0c0c0");
-                $(".tile-start").css("background-color","#c0c0c0");
+        $("#board").css("background-color","#c0c0c0");
+        $(".tile-start").css("background-color","#c0c0c0");
     } else if (getCookie("#f08080") == "enabled") {
-                //document.querySelector("#board").style.background = "#f08080";
-                //document.querySelector(".tile-start").style.background = "#f08080";
+        $("#board").css("background-color","#f08080");
+        $(".tile-start").css("background-color","#f08080");
     } else if (getCookie("#fafad2") == "enabled") {
-                //document.querySelector("#board").style.background = "#fafad2";
-                //document.querySelector(".tile-start").style.background = "#fafad2";
+        $("#board").css("background-color","#fafad2");
+        $(".tile-start").css("background-color","#fafad2");
     } else if (getCookie("#90ee90") == "enabled") {
-                //document.querySelector("#board").style.background = "#90ee90";
-                //document.querySelector(".tile-start").style.background = "#90ee90";
+        $("#board").css("background-color","#90ee90");
+        $(".tile-start").css("background-color","#90ee90");
     } else if (getCookie("#add8e6") == "enabled") {
-                //document.querySelector("#board").style.background = "#add8e6";
-                //document.querySelector(".tile-start").style.background = "#add8e6";
+        $("#board").css("background-color","#add8e6");
+        $(".tile-start").css("background-color","#add8e6");
     } else if (getCookie("#deb887") == "enabled") {
-                //document.querySelector("#board").style.background = "#deb887";
-                //document.querySelector(".tile-start").style.background = "#deb887";
+        $("#board").css("background-color","#deb887");
+        $(".tile-start").css("background-color","#deb887");
     }
 });
