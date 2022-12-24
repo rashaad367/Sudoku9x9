@@ -228,16 +228,6 @@ $(document).ready(function() {
         if (parts.length == 2) return parts.pop().split(";").shift();
     }
 
-     $(document).ready(function() {
-    // cookie getter
-    // if the name is found within all currently set cookies on the site
-    // then the cookie is retrieved
-    function getCookie(name) {
-        var value = "; " + document.cookie;
-        var parts = value.split("; " + name + "=");
-        if (parts.length == 2) return parts.pop().split(";").shift();
-    }
-
     setTimeout(function() {
         if (getCookie("#f5f5f5") == "enabled") {
             $("#board").css("background-color","#f5f5f5");
