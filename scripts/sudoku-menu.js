@@ -21,6 +21,8 @@ $(document).ready(function() {
     // change color of board using cookies
     $(".chg-color-btn").click(function() {
         var color = $("#custom").spectrum("get");
+        // resets cookies, so that the most recent cookie will determine the color of the board
+        deleteAllCookies();
         setCookie(color.toHexString(), "enabled", expDate);
         console.log(color.toHexString());
     });
@@ -34,3 +36,16 @@ function setCookie(name, value, expirationDate) {
 // expiration date for cookies (one-day)
 var expDate = new Date();
 expDate.setDate(expDate.getDate() + 1);
+
+function deleteAllCookies() {
+    // gets all cookies
+    var cookies = document.cookie.split(";");
+
+    // iterate through all cookies and delete each of them
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i]; // each particular cookie
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
