@@ -228,7 +228,7 @@ $(document).ready(function() {
         if (parts.length == 2) return parts.pop().split(";").shift();
     }
 
-    $(document).one("pageshow", function() { // after page intializes, event is triggered to check cookies
+    $(document).one("pageshow", function() { // every time page shows, an event is triggered to check cookies
         if (getCookie("#f5f5f5") == "enabled") {
             $("#board").css("background-color","#f5f5f5");
             $(".tile-start").css("background-color","#f5f5f5");
