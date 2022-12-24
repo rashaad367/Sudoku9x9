@@ -228,7 +228,7 @@ $(document).ready(function() {
         if (parts.length == 2) return parts.pop().split(";").shift();
     }
 
-    setTimeout(function() {
+    $(document).on("pageinit", function() { // after page intializes, event is triggered to check cookies
         if (getCookie("#f5f5f5") == "enabled") {
             $("#board").css("background-color","#f5f5f5");
             $(".tile-start").css("background-color","#f5f5f5");
@@ -261,5 +261,5 @@ $(document).ready(function() {
             $("#board").css("background-color","#deb887");
             $(".tile-start").css("background-color","#deb887");
         }    
-    }, 2000);
+    });
 });
