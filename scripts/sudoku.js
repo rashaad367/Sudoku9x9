@@ -217,19 +217,6 @@ function setBoard() {
     board[randomRow][randomCol] = '-';
 }
 
-function deleteAllCookies() {
-    // gets all cookies
-    var cookies = document.cookie.split(";");
-
-    // iterate through all cookies and delete each of them
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i]; // each particular cookie
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }
-}
-
 // using cookies to change board color
 $(document).ready(function() {
     // cookie getter
@@ -274,7 +261,5 @@ $(document).ready(function() {
             $("#board").css("background-color","#deb887");
             $(".tile-start").css("background-color","#deb887");
         }
-        
-        deleteAllCookies();
     });
 });
