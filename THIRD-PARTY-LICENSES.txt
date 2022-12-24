@@ -12,3 +12,8 @@ Library name: TinyColor
 Version: 1.6.0
 License: MIT License
 License Link: https://github.com/bgrins/TinyColor/blob/master/LICENSE
+
+Library name: toastify-js
+Version: 1.12.0
+License: MIT License
+License Link: https://github.com/apvarun/toastify-js/blob/master/LICENSE
