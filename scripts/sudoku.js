@@ -24,17 +24,6 @@ while (numCounter() < 4) {
 var solution = board.slice(); 
 createSol();
 
-// sets up difficulty
-$(window).on("load", function () {
-    if (getCookie("Easy") == "enabled") {
-        blankAmount -=46;
-    } else if (getCookie("Medium") == "enabled") {
-        blankAmount -= 36;
-    } else if (getCookie("Hard") == "enabled") {
-        blankAmount -= 26;
-    }
-});
-
 // using cookies to change board color and difficulty
 $(document).ready(function() {
     $(document).one("mousemove", function() { // every time page shows, an event is triggered to check cookies
@@ -84,10 +73,18 @@ $(document).ready(function() {
     });
 });
 
+if (getCookie("Easy") == "enabled") {
+    blankAmount -=46;
+} else if (getCookie("Medium") == "enabled") {
+    blankAmount -= 36;
+} else if (getCookie("Hard") == "enabled") {
+    blankAmount -= 26;
+}
+
 //Thank you chatGPT! You helped me figure out to use a different memory location for this array
 board = JSON.parse(JSON.stringify(solution));
 while (blankCounter() < blankAmount) {
-    setBoard();
+setBoard();
 }
 
 // counts the total amount of numbers present on the board for randomizer
