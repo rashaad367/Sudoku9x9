@@ -16,15 +16,17 @@ $(document).ready(function() {
         $(".diff").removeClass("selected");
         // adds class to difficulty button just clicked on
         $(this).addClass("selected");
+        setCookie(this.innerText, "enabled", expDate);
+        console.log(this.innerText) // REMOVE EVENTUALLY
     });
 
     // change color of board using cookies
     $(".chg-color-btn").click(function() {
         var color = $("#custom").spectrum("get");
         // resets cookies, so that the most recent cookie will determine the color of the board
-        deleteAllCookies();
+        deleteAllCookies();  
         setCookie(color.toHexString(), "enabled", expDate);
-        console.log(color.toHexString());
+        console.log(color.toHexString()); // REMOVE EVENTUALLY
     });
 });
 
