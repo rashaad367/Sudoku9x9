@@ -1,6 +1,6 @@
 var numSelected = null;
 var tileSelected = null;
-var blankAmount = 81;
+var blankAmount = 40;
 var errors = 0;
 
 var board = [
@@ -73,13 +73,14 @@ $(document).ready(function() {
     });
 });
 
+/*
 if (getCookie("Easy") == "enabled") {
     blankAmount -=46;
 } else if (getCookie("Medium") == "enabled") {
     blankAmount -= 36;
 } else if (getCookie("Hard") == "enabled") {
     blankAmount -= 46;
-}
+}*/
 
 //Thank you chatGPT! You helped me figure out to use a different memory location for this array
 board = JSON.parse(JSON.stringify(solution));
