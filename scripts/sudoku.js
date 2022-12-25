@@ -1,6 +1,6 @@
 var numSelected = null;
 var tileSelected = null;
-var blankAmount = 40;
+var blankAmount = 81;
 var errors = 0;
 
 var board = [
