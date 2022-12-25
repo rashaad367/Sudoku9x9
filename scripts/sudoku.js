@@ -24,19 +24,19 @@ while (numCounter() < 4) {
 var solution = board.slice(); 
 createSol();
 
+// sets up difficulty
+$(window).on("load", function () {
+    if (getCookie("Easy") == "enabled") {
+        blankAmount -=46;
+    } else if (getCookie("Medium") == "enabled") {
+        blankAmount -= 36;
+    } else if (getCookie("Hard") == "enabled") {
+        blankAmount -= 26;
+    }
+});
+
 // using cookies to change board color and difficulty
 $(document).ready(function() {
-    // sets up difficulty
-    $(window).on("load", function () {
-        if (getCookie("Easy") == "enabled") {
-            blankAmount -=46;
-        } else if (getCookie("Medium") == "enabled") {
-            blankAmount -= 36;
-        } else if (getCookie("Hard") == "enabled") {
-            blankAmount -= 26;
-        }
-    });
-
     $(document).one("mousemove", function() { // every time page shows, an event is triggered to check cookies
         // sets up board color
         if (getCookie("#f5f5f5") == "enabled") {
