@@ -25,7 +25,7 @@ var solution = board.slice();
 createSol();
 
 // using cookies to change board color and difficulty
-$(document).ready(function() {
+/*$(document).ready(function() {
     $(document).one("mousemove", function() { // every time page shows, an event is triggered to check cookies
         // sets up board color
         if (getCookie("#f5f5f5") == "enabled") {
@@ -71,16 +71,16 @@ $(document).ready(function() {
             $(".number").css("background-color", "#deb887");
         }
     });
-});
+});*/
 
-/*
+
 if (getCookie("Easy") == "enabled") {
     blankAmount -=46;
 } else if (getCookie("Medium") == "enabled") {
     blankAmount -= 36;
 } else if (getCookie("Hard") == "enabled") {
     blankAmount -= 46;
-}*/
+}
 
 //Thank you chatGPT! You helped me figure out to use a different memory location for this array
 board = JSON.parse(JSON.stringify(solution));
