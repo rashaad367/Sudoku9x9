@@ -1,4 +1,34 @@
- if (getCookie("#f5f5f5") == "enabled") {
+var numSelected = null;
+var tileSelected = null;
+var blankAmount = 81;
+var errors = 0;
+
+var board = [
+    ['-','-','-','-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-','-','-']
+]
+
+// sets up the amount of numbers present on the board according to difficulty
+while (numCounter() < 4) {
+    randomizeBoard(board);
+}
+
+// creates solution board that will ultimately be used for comparison to starting baord
+var solution = board.slice(); 
+createSol();
+
+// using cookies to change board color and difficulty
+$(document).ready(function() {
+    $(document).one("mousemove", function() { // every time page shows, an event is triggered to check cookies
+        // sets up board color
+        if (getCookie("#f5f5f5") == "enabled") {
             $("#board").css("background-color","#f5f5f5");
             $(".tile-start").css("background-color","#f5f5f5");
             $(".number").css("background-color", "#f5f5f5");
@@ -40,3 +70,228 @@
             $(".tile-start").css("background-color","#deb887");
             $(".number").css("background-color", "#deb887");
         }
+    });
+});
+
+if (getCookie("Easy") == "enabled") {
+    blankAmount -=46;
+} else if (getCookie("Medium") == "enabled") {
+    blankAmount -= 36;
+} else if (getCookie("Hard") == "enabled") {
+    blankAmount -= 46;
+}
+
+//Thank you chatGPT! You helped me figure out to use a different memory location for this array
+board = JSON.parse(JSON.stringify(solution));
+while (blankCounter() < blankAmount) {
+setBoard();
+}
+
+// counts the total amount of numbers present on the board for randomizer
+function numCounter() {
+    let numCount = 0;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (board[i][j] != '-') {
+                numCount+=1;
+            }
+        }
+    }
+    return numCount;
+}
+
+// counts the total amount of blank boxes on the sudoku board
+function blankCounter() {
+    let blankCount = 0;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (board[i][j] == '-') {
+                blankCount+=1;
+            }
+        }
+    }
+    return blankCount;
+} 
+
+// loads sudoku
+window.onload = function() {
+    setGame();
+}
+
+// sets up sudoku board and digits
+function setGame() { 
+    // creates numbers for digits 1-9
+    for (let i = 1; i <= 9; i++) {
+        // <div id="i" class="number">i<div/>
+        let number = document.createElement("div"); // creating div element
+        number.id = i; // number id attr
+        number.innerText = i; // number innerText attr
+        number.addEventListener("click", selectNumber);
+        number.classList.add("number");
+        document.getElementById("digits").appendChild(number);
+    }
+
+    // creates numbers for board 9x9
+    for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+            //<div id="r-c" class="tile"><div/>
+            let tile = document.createElement("div");
+            tile.id = r.toString() + "-" + c.toString();
+            if (board[r][c] != "-") {
+                tile.innerText = board[r][c];
+                tile.classList.add("tile-start");
+            }
+            if (r == 2 || r == 5) {
+                tile.classList.add("horizontal-line");
+            }
+            if (c == 2 || c == 5) {
+                tile.classList.add("vertical-line");
+            }
+            tile.addEventListener("click", selectTile);
+            tile.classList.add("tile");
+            document.getElementById("board").append(tile);
+        }
+    }
+}
+
+// allow users to select a number
+function selectNumber() {
+    if (numSelected != null) {
+        numSelected.classList.remove("number-selected");
+    }
+    numSelected = this;
+    numSelected.classList.add("number-selected"); // upon click it adds num-selected class
+}
+
+// shows error messages
+function showErrorMessage(message) {
+        Toastify({
+            text: message,
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "red",
+            className: "error1",
+        }).showToast();
+}
+
+// allows uers to select a tile and see if it matches with the number selected according to solution board
+function selectTile() {
+    // an error that notifies the user to select a digit before clicking an empty tile
+    if (numSelected == null && this.innerText == "") {
+        showErrorMessage("Error: select a number first.");
+     }
+    if (numSelected) {
+        if (this.innerText != "") { //prevents overwritting number
+            return;
+        }
+        // 'r-c'
+        let coords = this.id.split("-"); // ['r','c']
+        let r = parseInt(coords[0]);
+        let c = parseInt(coords[1]);
+
+        if (solution[r][c] == numSelected.id) {
+            this.innerText = numSelected.id;
+        } else {
+            errors+=1;
+            document.getElementById("errors").innerText = errors;
+        }
+    }
+}
+
+// checks to see if a number exists in a row
+function isNumInRow(b, num, row) { // b for board
+    for (let i = 0; i < 9; i++) {
+        if (b[row][i] == num) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// checks to see if a number exists in a column
+function isNumInCol(b, num, col) { // b for board
+    for (let i = 0; i < 9; i++) {
+        if (b[i][col] == num) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// checks to see if a number exists in a 3x3 box
+function isNumInBox(b, num, row, col) { // b for board
+    let localBoxRow = row - row % 3;
+    let localBoxCol = col - col % 3;
+
+    for (let i = localBoxRow; i < localBoxRow + 3; i++) {
+        for (let j = localBoxCol; j < localBoxCol + 3; j++) {
+            if (b[i][j] == num) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+// checks to see if number has a valid placement
+function isValidPlace(b, num, row, col) {
+    return !isNumInRow(b, num, row) &&
+           !isNumInCol(b, num, col) &&
+           !isNumInBox(b, num, row, col);
+}
+
+// setting up the board (Board-setting algorithm)
+function randomizeBoard(b) {
+    // floor these because they default as doubles
+    let randomRow = Math.floor(Math.random() * 9);
+    let randomCol = Math.floor(Math.random() * 9);
+    let randomNum = Math.floor(Math.random() * 9) + 1;
+
+    if (b[randomRow][randomCol] == '-') {
+        if (isValidPlace(b, randomNum, randomRow, randomCol)) {
+            b[randomRow][randomCol] = randomNum.toString();
+        } else {
+            b[randomRow][randomCol] = '-';
+        }
+    }
+}
+
+// create solution (Backtracking algorithm)
+function createSol() { // sb = sample board
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (solution[i][j] == '-') { // if empty square it will try numbers 1-9
+                for (let n = 1; n <= 9; n++) {
+                    if (isValidPlace(solution, n, i, j)) {
+                        solution[i][j] = n.toString();
+                        if (createSol(solution)) {
+                            return true;
+                        } else {
+                            solution[i][j] = '-';
+                        }
+                    }    
+                }
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+// sets the starting board by clearing out boxes
+function setBoard() {
+    let randomRow = Math.floor(Math.random() * 9);
+    let randomCol = Math.floor(Math.random() * 9);
+    board[randomRow][randomCol] = '-';
+}
+
+// cookie getter
+// if the name is found within all currently set cookies on the site
+// then the cookie is retrieved
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
