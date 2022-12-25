@@ -1,6 +1,6 @@
 var numSelected = null;
 var tileSelected = null;
-
+var blankAmount = 81;
 var errors = 0;
 
 var board = [
@@ -15,10 +15,6 @@ var board = [
     ['-','-','-','-','-','-','-','-','-']
 ]
 
-// sets up difficulty using cookies
-
-
-
 // sets up the amount of numbers present on the board according to difficulty
 while (numCounter() < 4) {
     randomizeBoard(board);
@@ -28,9 +24,69 @@ while (numCounter() < 4) {
 var solution = board.slice(); 
 createSol();
 
+// using cookies to change board color and difficulty
+$(document).ready(function() {
+    // sets up difficulty
+    $(document).one("pageshow", function () {
+        if (getCookie("Easy") == "enabled") {
+            blankAmount -=46;
+        } else if (getCookie("Medium") == "enabled") {
+            blankAmount -= 36;
+        } else if (getCookie("Hard") == "enabled") {
+            blankAmount -= 26;
+        }
+    });
+
+    $(document).one("mousemove", function() { // every time page shows, an event is triggered to check cookies
+        // sets up board color
+        if (getCookie("#f5f5f5") == "enabled") {
+            $("#board").css("background-color","#f5f5f5");
+            $(".tile-start").css("background-color","#f5f5f5");
+            $(".number").css("background-color", "#f5f5f5");
+        } else if (getCookie("#d3d3d3") == "enabled") {
+            $("#board").css("background-color","#d3d3d3");
+            $(".tile-start").css("background-color","#d3d3d3");
+            $(".number").css("background-color", "#d3d3d3");
+        } else if (getCookie("#ffebcd") == "enabled") {
+            $("#board").css("background-color","#ffebcd");
+            $(".tile-start").css("background-color","#ffebcd");
+            $(".number").css("background-color", "#ffebcd");
+        } else if (getCookie("#778899") == "enabled") {
+            $("#board").css("background-color","#778899");
+            $(".tile-start").css("background-color","#778899");
+            $(".number").css("background-color", "#778899");
+        } else if (getCookie("#c0c0c0") == "enabled") {
+            $("#board").css("background-color","#c0c0c0");
+            $(".tile-start").css("background-color","#c0c0c0");
+            $(".number").css("background-color", "#c0c0c0");
+            console.log($("#board"));
+        } else if (getCookie("#f08080") == "enabled") {
+            $("#board").css("background-color","#f08080");
+            $(".tile-start").css("background-color","#f08080");
+            $(".number").css("background-color", "#f08080");
+        } else if (getCookie("#fafad2") == "enabled") {
+            $("#board").css("background-color","#fafad2");
+            $(".tile-start").css("background-color","#fafad2");
+            $(".number").css("background-color", "#fafad2");
+        } else if (getCookie("#90ee90") == "enabled") {
+            $("#board").css("background-color","#90ee90");
+            $(".tile-start").css("background-color","#90ee90");
+            $(".number").css("background-color", "#90ee90");
+        } else if (getCookie("#add8e6") == "enabled") {
+            $("#board").css("background-color","#add8e6");
+            $(".tile-start").css("background-color","#add8e6");
+            $(".number").css("background-color", "#add8e6");
+        } else if (getCookie("#deb887") == "enabled") {
+            $("#board").css("background-color","#deb887");
+            $(".tile-start").css("background-color","#deb887");
+            $(".number").css("background-color", "#deb887");
+        }
+    });
+});
+
 //Thank you chatGPT! You helped me figure out to use a different memory location for this array
 board = JSON.parse(JSON.stringify(solution));
-while (blankCounter() < 40) {
+while (blankCounter() < blankAmount) {
     setBoard();
 }
 
@@ -242,51 +298,3 @@ function getCookie(name) {
     var parts = value.split("; " + name + "=");
     if (parts.length == 2) return parts.pop().split(";").shift();
 }
-
-// using cookies to change board color
-$(document).ready(function() {
-    $(document).one("mousemove", function() { // every time page shows, an event is triggered to check cookies
-        if (getCookie("#f5f5f5") == "enabled") {
-            $("#board").css("background-color","#f5f5f5");
-            $(".tile-start").css("background-color","#f5f5f5");
-            $(".number").css("background-color", "#f5f5f5");
-        } else if (getCookie("#d3d3d3") == "enabled") {
-            $("#board").css("background-color","#d3d3d3");
-            $(".tile-start").css("background-color","#d3d3d3");
-            $(".number").css("background-color", "#d3d3d3");
-        } else if (getCookie("#ffebcd") == "enabled") {
-            $("#board").css("background-color","#ffebcd");
-            $(".tile-start").css("background-color","#ffebcd");
-            $(".number").css("background-color", "#ffebcd");
-        } else if (getCookie("#778899") == "enabled") {
-            $("#board").css("background-color","#778899");
-            $(".tile-start").css("background-color","#778899");
-            $(".number").css("background-color", "#778899");
-        } else if (getCookie("#c0c0c0") == "enabled") {
-            $("#board").css("background-color","#c0c0c0");
-            $(".tile-start").css("background-color","#c0c0c0");
-            $(".number").css("background-color", "#c0c0c0");
-            console.log($("#board"));
-        } else if (getCookie("#f08080") == "enabled") {
-            $("#board").css("background-color","#f08080");
-            $(".tile-start").css("background-color","#f08080");
-            $(".number").css("background-color", "#f08080");
-        } else if (getCookie("#fafad2") == "enabled") {
-            $("#board").css("background-color","#fafad2");
-            $(".tile-start").css("background-color","#fafad2");
-            $(".number").css("background-color", "#fafad2");
-        } else if (getCookie("#90ee90") == "enabled") {
-            $("#board").css("background-color","#90ee90");
-            $(".tile-start").css("background-color","#90ee90");
-            $(".number").css("background-color", "#90ee90");
-        } else if (getCookie("#add8e6") == "enabled") {
-            $("#board").css("background-color","#add8e6");
-            $(".tile-start").css("background-color","#add8e6");
-            $(".number").css("background-color", "#add8e6");
-        } else if (getCookie("#deb887") == "enabled") {
-            $("#board").css("background-color","#deb887");
-            $(".tile-start").css("background-color","#deb887");
-            $(".number").css("background-color", "#deb887");
-        }
-    });
-});
