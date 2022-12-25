@@ -27,7 +27,7 @@ createSol();
 // using cookies to change board color and difficulty
 $(document).ready(function() {
     // sets up difficulty
-    $(document).one("pageshow", function () {
+    $(window).on("load", function () {
         if (getCookie("Easy") == "enabled") {
             blankAmount -=46;
         } else if (getCookie("Medium") == "enabled") {
