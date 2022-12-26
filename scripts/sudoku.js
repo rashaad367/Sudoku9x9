@@ -72,7 +72,7 @@ window.onload = function() {
 
 
 // using cookies to change board color and difficulty
-$(document).ready(function() {
+$(window).on("load", function() {
    // $(document).one("mousemove", function() { // every time page shows, an event is triggered to check cookies
         // sets up board color
         if (getCookie("#f5f5f5") == "enabled") {
