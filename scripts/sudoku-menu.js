@@ -16,6 +16,7 @@ $(document).ready(function() {
         $(".diff").removeClass("selected");
         // adds class to difficulty button just clicked on
         $(this).addClass("selected");
+        deleteAllCookies();
         setCookie(this.innerText, "enabled", expDate);
         console.log(this.innerText) // REMOVE EVENTUALLY
     });
