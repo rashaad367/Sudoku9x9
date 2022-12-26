@@ -24,8 +24,55 @@ while (numCounter() < 4) {
 var solution = board.slice(); 
 createSol();
 
+// difficulty is set from cookies
+if (getCookie("Easy") == "enabled") {
+    blankAmount -= 46;
+} else if (getCookie("Medium") == "enabled") {
+    blankAmount -= 36;
+} else if (getCookie("Hard") == "enabled") {
+    blankAmount -= 26;
+}
+
+//Thank you chatGPT! You helped me figure out to use a different memory location for this array
+board = JSON.parse(JSON.stringify(solution));
+while (blankCounter() < blankAmount) {
+setBoard();
+}
+
+// counts the total amount of numbers present on the board for randomizer
+function numCounter() {
+    let numCount = 0;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (board[i][j] != '-') {
+                numCount+=1;
+            }
+        }
+    }
+    return numCount;
+}
+
+// counts the total amount of blank boxes on the sudoku board
+function blankCounter() {
+    let blankCount = 0;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (board[i][j] == '-') {
+                blankCount+=1;
+            }
+        }
+    }
+    return blankCount;
+} 
+
+// loads sudoku
+window.onload = function() {
+    setGame();
+}
+
+
 // using cookies to change board color and difficulty
-/*$(document).ready(function() {
+$(document).ready(function() {
     $(document).one("mousemove", function() { // every time page shows, an event is triggered to check cookies
         // sets up board color
         if (getCookie("#f5f5f5") == "enabled") {
@@ -71,53 +118,7 @@ createSol();
             $(".number").css("background-color", "#deb887");
         }
     });
-});*/
-
-
-if (getCookie("Easy") == "enabled") {
-    blankAmount -=46;
-} else if (getCookie("Medium") == "enabled") {
-    blankAmount -= 36;
-} else if (getCookie("Hard") == "enabled") {
-    blankAmount -= 46;
-}
-
-//Thank you chatGPT! You helped me figure out to use a different memory location for this array
-board = JSON.parse(JSON.stringify(solution));
-while (blankCounter() < blankAmount) {
-setBoard();
-}
-
-// counts the total amount of numbers present on the board for randomizer
-function numCounter() {
-    let numCount = 0;
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            if (board[i][j] != '-') {
-                numCount+=1;
-            }
-        }
-    }
-    return numCount;
-}
-
-// counts the total amount of blank boxes on the sudoku board
-function blankCounter() {
-    let blankCount = 0;
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            if (board[i][j] == '-') {
-                blankCount+=1;
-            }
-        }
-    }
-    return blankCount;
-} 
-
-// loads sudoku
-window.onload = function() {
-    setGame();
-}
+});
 
 // sets up sudoku board and digits
 function setGame() { 
