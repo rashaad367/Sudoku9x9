@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    // after the website loads it resets cookies, so that the
+    // most recent cookie will determine the color of the board
+    deleteAllCookies();
+
     $("#custom").spectrum({
         showPaletteOnly: true,
         showPalette:true,
@@ -16,7 +20,6 @@ $(document).ready(function() {
         $(".diff").removeClass("selected");
         // adds class to difficulty button just clicked on
         $(this).addClass("selected");
-        deleteAllCookies();
         setCookie(this.innerText, "enabled", expDate);
         console.log(this.innerText) // REMOVE EVENTUALLY
     });
@@ -24,8 +27,6 @@ $(document).ready(function() {
     // change color of board using cookies
     $(".chg-color-btn").click(function() {
         var color = $("#custom").spectrum("get");
-        // resets cookies, so that the most recent cookie will determine the color of the board
-        deleteAllCookies();  
         setCookie(color.toHexString(), "enabled", expDate);
         console.log(color.toHexString()); // REMOVE EVENTUALLY
     });
