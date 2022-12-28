@@ -163,7 +163,7 @@ function setGame() {
         //heart.id = "heart" + j.toString();
         heart.src = "images/64heart.png";
         heart.alt = "64 heart";
-
+        document.getElementById("heart").appendChild(heart);
     }
 }
 
