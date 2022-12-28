@@ -37,6 +37,8 @@ if (getCookie("Easy") == "enabled") {
     hearts = 3;
 }
 
+var count = hearts;
+
 //Thank you chatGPT! You helped me figure out to use a different memory location for this array
 board = JSON.parse(JSON.stringify(solution));
 while (blankCounter() < blankAmount) {
@@ -157,10 +159,10 @@ function setGame() {
 
     // creates number of lives based on selected difficulty
     
-    for (let j = 0; j < hearts; j++) {
-        //<img src="images/64heart.png" alt="64 heart">
+    for (let j = 1; j <= hearts; j++) {
+        //<img id="heart#" src="images/64heart.png" alt="64 heart">
         let heart = document.createElement("img");
-        //heart.id = "heart" + j.toString();
+        heart.id = "heart" + j.toString();
         heart.src = "images/64heart.png";
         heart.alt = "64 heart";
         document.getElementById("heart").appendChild(heart);
@@ -209,6 +211,10 @@ function selectTile() {
         } else {
             errors+=1;
             document.getElementById("errors").innerText = errors;
+            heartId = "heart" + count.toString();
+            heart = document.getElementById(heartId);
+            heart.remove();
+            count-=1;
         }
     }
 }
