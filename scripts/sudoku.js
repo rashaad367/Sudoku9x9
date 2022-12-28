@@ -214,6 +214,9 @@ function selectTile() {
             heartId = "heart" + count.toString();
             heart = document.getElementById(heartId);
             heart.remove();
+            if (count == 0) {
+                gameOver();
+            }
             count-=1;
         }
     }
@@ -313,4 +316,17 @@ function getCookie(name) {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");
     if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+// game over seqeunce
+function gameOver() {
+    // blanks out board
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            board[i][j] = '-';
+        }
+    }
+    // puts game over header in the middle of the board
+
+    //
 }
