@@ -214,9 +214,7 @@ function selectTile() {
             heartId = "heart" + count.toString();
             heart = document.getElementById(heartId);
             heart.remove();
-            if (count == 0) {
-                gameOver();
-            }
+            gameOver();
             count-=1;
         }
     }
