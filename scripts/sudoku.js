@@ -340,5 +340,6 @@ function gameOver() {
     ta.href = "index.html";
     taHeader.innerText = "Try again?"
     ta.appendChild(taHeader);
+    //
     
 }
