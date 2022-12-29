@@ -335,8 +335,10 @@ function gameOver() {
     go.id = "game-over";
     //<a id="try-again" href='sudoku-menu.html'><h2>Try again?</h2></a>
     var ta = document.createElement("a");
+    var taHeader = document.createElmenet("h2");
     ta.id = "try-again";
     ta.href = "index.html";
-    ta.appendChild("<h2>Try again?</h2>");
+    taHeader.innerText = "Try again?"
+    ta.appendChild(taHeader);
     
 }
