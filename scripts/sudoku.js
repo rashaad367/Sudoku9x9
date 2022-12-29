@@ -318,13 +318,25 @@ function getCookie(name) {
 
 // game over seqeunce
 function gameOver() {
-    // blanks out board
+    // blanks out solution board
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             board[i][j] = '-';
+            solution[i][j] = '-';
         }
     }
-    // puts game over header in the middle of the board
-
-    //
+    
+    // game over screen
+    //<div id="game-over-screen"></div>
+    var gos = document.createElement("div");
+    gos.id = "game-over-screen";
+    //<h2 id="game-over">Game Over</h2>
+    var go = document.createElement("h2");
+    go.id = "game-over";
+    //<a id="try-again" href='sudoku-menu.html'><h2>Try again?</h2></a>
+    var ta = document.createElement("a");
+    ta.id = "try-again";
+    ta.href = "index.html";
+    ta.appendChild("<h2>Try again?</h2>");
+    
 }
