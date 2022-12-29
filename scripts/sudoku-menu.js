@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    // after the website loads it resets cookies, so that the
-    // most recent cookie will determine the color of the board
-    deleteAllCookies();
-
     $("#custom").spectrum({
         showPaletteOnly: true,
         showPalette:true,
@@ -48,6 +44,10 @@ $(document).ready(function() {
         }
         setCookie(color.toHexString(), "enabled", expDate);
         console.log(color.toHexString()); // REMOVE EVENTUALLY
+    });
+
+    $("#start-game-button").click(function() {
+        window.location = 'sudoku.html';
     });
 });
 
