@@ -211,8 +211,8 @@ function selectTile() {
         } else {
             errors+=1;
             document.getElementById("errors").innerText = errors;
-            heartId = "heart" + count.toString();
-            heart = document.getElementById(heartId);
+            let heartId = "heart" + count.toString();
+            let heart = document.getElementById(heartId);
             heart.remove();
             //gameOver();
             count-=1;
