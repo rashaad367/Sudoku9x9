@@ -107,7 +107,7 @@ label {
     background-color: blue;
 }
 
-#game-over {
+#game-over-header {
     position: absolute;
     top: 270px;
     right: 600px;
