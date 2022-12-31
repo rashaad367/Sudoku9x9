@@ -78,7 +78,6 @@ hr {
     position: absolute;
     top: 175px;
     right: 200px;
-    background-color: blue;
     width: 320px;
     height: 64px;
     display: flex;
@@ -92,7 +91,6 @@ label {
     width: 320px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: x-large;
-    background-color: aqua;
     display: flex;
 }
 
@@ -104,7 +102,6 @@ label {
     flex-wrap: wrap;
     width: 320px;
     height: 60px;
-    background-color: blue;
 }
 
 #game-over-header {
@@ -114,7 +111,7 @@ label {
     width: 320px;
     height: 50px;
     font-size: xx-large;
-    background-color: green;
+    color: red;
 }
 
 #game-over-screen {
@@ -123,7 +120,8 @@ label {
     right: 535px;
     width: 450px;
     height: 450px;
-    background-color: yellow;
+    background-color: black;
+    opacity: 0.25;
 }
 
 #try-again {
@@ -132,5 +130,6 @@ label {
     right: 600px;
     width: 320px;
     height: 50px;
-    background-color: red;
+    color: red;
+    text-decoration: none;
 }
