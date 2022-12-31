@@ -23,8 +23,8 @@ hr {
 
 .tile {
     width: 47px;
-    height: 47px;
-    border: 1px solid lightslategray;
+    height: 48px;
+    border: 1px solid #2b2b2b;
     margin: 0 auto;
 
     /* text */
@@ -36,6 +36,8 @@ hr {
 }
 
 #digits {
+    position: relative;
+    top: 20px;
     width: 450px;
     height: 50px;
     background-color: white;
@@ -47,7 +49,7 @@ hr {
 .number {
     width: 43px; /* 50px - 4px - 2px = 44px */
     height: 43px;
-    border: 2px solid lightslategray; /* 1x2=2px */
+    border: 2px solid #2b2b2b; /* 1x2=2px */
     margin: 2px auto; /* 2x2 px = 4px */
     
     /* text */
@@ -102,6 +104,10 @@ label {
     flex-wrap: wrap;
     width: 320px;
     height: 60px;
+}
+
+#mistakes h2 {
+    font-weight: lighter;
 }
 
 #game-over-header {
