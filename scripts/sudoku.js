@@ -332,14 +332,18 @@ function gameOver() {
     //<div id="game-over-screen"></div>
     var gos = document.createElement("div");
     gos.id = "game-over-screen";
-    //<h2 id="game-over">Game Over</h2>
+    //<h2 id="game-over-header">Game Over</h2>
     var go = document.createElement("h2");
-    go.id = "game-over";
+    go.id = "game-over-header";
     //<a id="try-again" href='sudoku-menu.html'><h2>Try again?</h2></a>
     var ta = document.createElement("a");
     var taHeader = document.createElement("h2");
     ta.id = "try-again";
     ta.href = "index.html";
     taHeader.innerText = "Try again?"
-    ta.appendChild(taHeader);
+    
+    document.getElementById("game-over").appendChild(gos);
+    document.getElementById("game-over").appendChild(go);
+    document.getElementById("game-over").appendChild(ta);
+    document.getElementById("try-again").appendChild(taHeader);
 }
