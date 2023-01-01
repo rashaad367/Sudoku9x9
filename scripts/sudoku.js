@@ -208,7 +208,7 @@ function selectTile() {
 
         if (solution[r][c] == numSelected.id) {
             this.innerText = numSelected.id;
-            board[r][c] = numSelected.id.toString(); // updates board
+            board[r][c] = numSelected.id.toString(); // updates board with number
         } else {
             errors+=1;
             document.getElementById("errors").innerText = errors;
@@ -219,6 +219,15 @@ function selectTile() {
                 gameOver();
             }
             count-=1;
+        }
+
+        // number becomes hidden when all of its spots are found
+        var flatBoard = board.flat(); // flatten array
+        // count number of occurances using the reduce method
+        var numCount = flatBoard.reduce((acc,curr) => (curr == numSelected.toString() ? acc + 1 : acc), 0);
+        // if number is found 9 times, its number selector disappears
+        if (numCount == 9) {
+            document.selectElementById(numSelected.id.toString()).remove();
         }
     }
 }
