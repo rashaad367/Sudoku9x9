@@ -375,4 +375,9 @@ var interval = setInterval(function() {
     }
 }, 1000);
 
+// stops timer when lives run out
+if (error == hearts) {
+    clearInterval(interval);
+}
+
 
