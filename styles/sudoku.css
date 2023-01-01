@@ -78,7 +78,7 @@ hr {
 
 #heart {
     position: absolute;
-    top: 175px;
+    top: 215px;
     right: 200px;
     width: 320px;
     height: 64px;
@@ -88,7 +88,7 @@ hr {
 
 label {
     position: absolute;
-    top: 150px;
+    top: 190px;
     right: 200px;
     width: 320px;
     font-family: Arial, Helvetica, sans-serif;
@@ -98,12 +98,12 @@ label {
 
 #mistakes {
     position: absolute;
-    top: 90px;
+    top: 130px;
     right: 200px;
     display: flex;
     flex-wrap: wrap;
     width: 320px;
-    height: 60px;
+    height: 55px;
 }
 
 #mistakes h2 {
@@ -138,4 +138,27 @@ label {
     height: 50px;
     color: red;
     text-decoration: none;
+}
+
+#time-header {
+    position: absolute;
+    top: 90px;
+    right: 460px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 60px;
+    height: 25px;
+    font-weight: lighter;
+}
+
+#timer {
+    position: absolute;
+    top: 90px;
+    right: 185px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 270px;
+    height: 40px;
+    font-weight: lighter;
+    font-size: 25px;
 }
