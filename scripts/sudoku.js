@@ -348,3 +348,31 @@ function gameOver() {
     document.getElementById("game-over").appendChild(ta);
     document.getElementById("try-again").appendChild(taHeader);
 }
+
+// game timer - set interval to update timer every second - days/hours/minutes/seconds
+let seconds = 0;
+var interval = setInterval(function() {
+    seconds++;
+    var minutes = Math.floor(seconds / 60);
+    var hours = Math.floor(minutes / 60);
+    var days = Math.floor(hours / 24);
+    var remainingSeconds = seconds % 60;
+    if (seconds < 60) {
+        document.getElementById("timer").innerHTML =
+        `${seconds}s`;
+    } 
+    else if (seconds < 3600) {
+        document.getElementById("timer").innerHTML = 
+        `${minutes.toString()}m ${remainingSeconds.toString().padStart(2,'0')}s`;
+    } 
+    else if (seconds < 86400) {
+        document.getElementById("timer").innerHTML =
+        `${hours}hr ${minutes}m`;
+    } 
+    else {
+        document.getElementById("timer").innerHTML =
+        `${days}dy`;
+    }
+}, 1000);
+
+
