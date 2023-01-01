@@ -215,7 +215,7 @@ function selectTile() {
             var numCount = flatBoard.reduce((acc,curr) => (curr == numSelected.toString() ? acc + 1 : acc), 0);
             // if number is found 9 times, its number selector disappears
             if (numCount == 9) {
-                document.selectElementById(numSelected.id.toString()).remove();
+                document.selectElementById('1').remove();
             }
         } else {
             errors+=1;
