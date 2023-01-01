@@ -208,6 +208,7 @@ function selectTile() {
 
         if (solution[r][c] == numSelected.id) {
             this.innerText = numSelected.id;
+            board[r][c] = numSelected.id.toString(); // updates board
         } else {
             errors+=1;
             document.getElementById("errors").innerText = errors;
