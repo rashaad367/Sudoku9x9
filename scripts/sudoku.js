@@ -373,11 +373,9 @@ var interval = setInterval(function() {
         document.getElementById("timer").innerHTML =
         `${days}dy`;
     }
+    // stops timer when lives run out
+    if (errors == hearts) {
+        clearInterval(interval);
+    }
 }, 1000);
-
-// stops timer when lives run out
-if (errors == hearts) {
-    clearInterval(interval);
-}
-
 
