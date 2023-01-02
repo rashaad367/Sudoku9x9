@@ -176,7 +176,9 @@ for (var d = 1; d <= 9; d++) {
     var numCount = flatBoard.reduce((acc,curr) => (curr == d.toString() ? acc + 1 : acc), 0);
     // if number is found 9 times, its number selector disappears
     if (numCount == 9) {
-        document.getElementById(d).remove();
+        if (String(d) != null) {
+            document.getElementById(String(d)).remove();
+        }
     }
 }
 
