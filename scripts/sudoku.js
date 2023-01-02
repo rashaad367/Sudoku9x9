@@ -168,6 +168,18 @@ function setGame() {
     }
 }
 
+// initial check to see if all of a digits places are found
+for (var d = 1; d <= 9; d++) {
+    // number becomes hidden when all of its spots are found
+    var flatBoard = board.flat(); // flatten array
+    // count number of occurances using the reduce method
+    var numCount = flatBoard.reduce((acc,curr) => (curr == d.toString() ? acc + 1 : acc), 0);
+    // if number is found 9 times, its number selector disappears
+    if (numCount == 9) {
+        setBoard();
+    }
+}
+
 // allow users to select a number
 function selectNumber() {
     if (numSelected != null) {
@@ -386,15 +398,3 @@ var interval = setInterval(function() {
         clearInterval(interval);
     }
 }, 1000);
-
-// initial check to see if all of a digits places are found
-for (var d = 1; d <= 9; d++) {
-    // number becomes hidden when all of its spots are found
-    var flatBoard = board.flat(); // flatten array
-    // count number of occurances using the reduce method
-    var numCount = flatBoard.reduce((acc,curr) => (curr == d.toString() ? acc + 1 : acc), 0);
-    // if number is found 9 times, its number selector disappears
-    if (numCount == 9) {
-        document.getElementById(d.toString()).removeChild();
-    }
-}
