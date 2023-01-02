@@ -212,10 +212,10 @@ function selectTile() {
             // number becomes hidden when all of its spots are found
             var flatBoard = board.flat(); // flatten array
             // count number of occurances using the reduce method
-            var numCount = flatBoard.reduce((acc,curr) => (curr == numSelected.toString() ? acc + 1 : acc), 0);
+            var numCount = flatBoard.reduce((acc,curr) => (curr == numSelected.id.toString() ? acc + 1 : acc), 0);
             // if number is found 9 times, its number selector disappears
             if (numCount == 9) {
-                document.selectElementById('1').remove();
+                document.selectElementById(numSelected.id.toString()).remove();
             }
         } else {
             errors+=1;
