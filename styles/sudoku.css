@@ -47,7 +47,7 @@ hr {
 }
 
 .number {
-    position: relative;
+    position: absolute;
     width: 43px; /* 50px - 4px - 2px = 44px */
     height: 43px;
     border: 2px solid #2b2b2b; /* 1x2=2px */
