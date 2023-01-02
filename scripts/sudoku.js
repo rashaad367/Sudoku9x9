@@ -158,7 +158,6 @@ function setGame() {
     }
 
     // creates number of lives based on selected difficulty
-    
     for (let j = 1; j <= hearts; j++) {
         //<img id="heart#" src="images/64heart.png" alt="64 heart">
         let heart = document.createElement("img");
@@ -166,6 +165,18 @@ function setGame() {
         heart.src = "images/64heart.png";
         heart.alt = "64 heart";
         document.getElementById("heart").appendChild(heart);
+    }
+}
+
+// initial check to see if all of a digits places are found
+for (let i = 1; i <= 9; i++) {
+    // number becomes hidden when all of its spots are found
+    var flatBoard = board.flat(); // flatten array
+    // count number of occurances using the reduce method
+    var numCount = flatBoard.reduce((acc,curr) => (curr == i.toString() ? acc + 1 : acc), 0);
+    // if number is found 9 times, its number selector disappears
+    if (numCount == 9) {
+        document.getElementById(i.toString()).remove();
     }
 }
 
