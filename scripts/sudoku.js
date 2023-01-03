@@ -371,7 +371,7 @@ function gameOverLose() {
     document.getElementById("game-over").appendChild(gos);
     document.getElementById("game-over").appendChild(go);
     document.getElementById("game-over").appendChild(ta);
-    document.getElementById("try-again").appendChild(taHeader);
+    document.getElementById("try-again-lose").appendChild(taHeader);
 }
 
 function gameOverWin() {
@@ -393,7 +393,7 @@ function gameOverWin() {
     document.getElementById("game-over").appendChild(gos);
     document.getElementById("game-over").appendChild(go);
     document.getElementById("game-over").appendChild(ta);
-    document.getElementById("try-again").appendChild(taHeader);
+    document.getElementById("try-again-win").appendChild(taHeader);
 }
 
 // game timer - set interval to update timer every second - days/hours/minutes/seconds
