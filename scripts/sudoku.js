@@ -235,9 +235,14 @@ function selectTile() {
             let heart = document.getElementById(heartId);
             heart.remove();
             if (errors == hearts) {
-                gameOver();
+                gameOverLose();
             }
             count-=1;
+        }
+
+        // if solution and current board match then the board is solved
+        if (board == solution) {
+            gameOverWin();
         }
     }
 }
@@ -339,7 +344,7 @@ function getCookie(name) {
 }
 
 // game over seqeunce
-function gameOver() {
+function gameOverLose() {
     // blanks out solution board
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
@@ -352,14 +357,36 @@ function gameOver() {
     //<div id="game-over-screen"></div>
     var gos = document.createElement("div");
     gos.id = "game-over-screen";
-    //<h2 id="game-over-header">Game Over</h2>
+    //<h2 id="game-over-header-lose">Game Over</h2>
     var go = document.createElement("h2");
-    go.id = "game-over-header";
+    go.id = "game-over-header-lose";
     go.innerText = "Game Over!";
-    //<a id="try-again" href='sudoku-menu.html'><h2>Try again?</h2></a>
+    //<a id="try-again-lose" href='sudoku-menu.html'><h2>Try again?</h2></a>
     var ta = document.createElement("a");
     var taHeader = document.createElement("h2");
-    ta.id = "try-again";
+    ta.id = "try-again-lose";
+    ta.href = "index.html";
+    taHeader.innerText = "Try again?";
+    
+    document.getElementById("game-over").appendChild(gos);
+    document.getElementById("game-over").appendChild(go);
+    document.getElementById("game-over").appendChild(ta);
+    document.getElementById("try-again").appendChild(taHeader);
+}
+
+function gameOverWin() {
+    // game over screen
+    //<div id="game-over-screen"></div>
+    var gos = document.createElement("div");
+    gos.id = "game-over-screen";
+    //<h2 id="game-over-header-win">You have solved the board</h2>
+    var go = document.createElement("h2");
+    go.id = "game-over-header-win";
+    go.innerText = "You've solved the board!";
+    //<a id="try-again-win" href='sudoku-menu.html'><h2>Try again?</h2></a>
+    var ta = document.createElement("a");
+    var taHeader = document.createElement("h2");
+    ta.id = "try-again-win";
     ta.href = "index.html";
     taHeader.innerText = "Try again?";
     
