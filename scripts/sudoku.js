@@ -421,7 +421,7 @@ var interval = setInterval(function() {
         `${days}dy`;
     }
     // stops timer when lives run out
-    if (errors == hearts || board == solution) {
+    if (errors == hearts || JSON.stringify(board) == JSON.stringify(solution)) {
         clearInterval(interval);
     }
 }, 1000);
