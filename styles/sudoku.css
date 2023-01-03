@@ -111,7 +111,7 @@ label {
     font-weight: lighter;
 }
 
-#game-over-header {
+#game-over-header-lose {
     position: absolute;
     top: 270px;
     right: 600px;
@@ -119,6 +119,16 @@ label {
     height: 50px;
     font-size: xx-large;
     color: red;
+}
+
+#game-over-header-win {
+    position: absolute;
+    top: 270px;
+    right: 600px;
+    width: 320px;
+    height: 50px;
+    font-size: xx-large;
+    color: green;
 }
 
 #game-over-screen {
@@ -131,13 +141,23 @@ label {
     opacity: 0.25;
 }
 
-#try-again {
+#try-again-lose {
     position: absolute;
     top: 345px;
     right: 600px;
     width: 320px;
     height: 50px;
     color: red;
+    text-decoration: none;
+}
+
+#try-again-win {
+    position: absolute;
+    top: 345px;
+    right: 600px;
+    width: 320px;
+    height: 50px;
+    color: green;
     text-decoration: none;
 }
 
