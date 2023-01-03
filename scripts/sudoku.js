@@ -241,7 +241,7 @@ function selectTile() {
         }
 
         // if solution and current board match then the board is solved
-        if (board == solution) {
+        if (JSON.stringify(board) === JSON.stringify(solution)) {
             gameOverWin();
         }
     }
