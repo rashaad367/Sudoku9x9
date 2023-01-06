@@ -41,7 +41,7 @@ hr {
     width: 450px;
     height: 50px;
     background-color: white;
-    margin: 0 auto;
+    margin: 0 2px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -51,7 +51,7 @@ hr {
     width: 43px; /* 50px - 4px - 2px = 44px */
     height: 43px;
     border: 2px solid #2b2b2b; /* 1x2=2px */
-    margin: 2px auto; /* 2x2 px = 4px */
+    margin: 2px 2px; /* 2x2 px = 4px */
     
     /* text */
     font-size: 20px;
@@ -114,7 +114,7 @@ label {
 #game-over-header-lose {
     position: absolute;
     top: 270px;
-    right: 520px;
+    right: 518px;
     width: 320px;
     height: 50px;
     font-size: xx-large;
@@ -124,7 +124,7 @@ label {
 #game-over-header-win {
     position: absolute;
     top: 240px;
-    right: 520px;
+    right: 518px;
     width: 320px;
     height: 50px;
     font-size: xx-large;
@@ -134,7 +134,7 @@ label {
 #game-over-screen {
     position: absolute;
     top: 90px;
-    right: 455px;
+    right: 453px;
     width: 450px;
     height: 455px;
     background-color: black;
@@ -144,7 +144,7 @@ label {
 #try-again-lose {
     position: absolute;
     top: 345px;
-    right: 520px;
+    right: 518px;
     width: 320px;
     height: 50px;
     color: red;
@@ -154,7 +154,7 @@ label {
 #try-again-win {
     position: absolute;
     top: 345px;
-    right: 520px;
+    right: 518px;
     width: 320px;
     height: 50px;
     color: green;
