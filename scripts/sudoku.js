@@ -345,14 +345,6 @@ function getCookie(name) {
 
 // game over seqeunce
 function gameOverLose() {
-    // blanks out solution board
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            board[i][j] = '-';
-            solution[i][j] = '-';
-        }
-    }
-    
     // game over screen
     //<div id="game-over-screen"></div>
     var gos = document.createElement("div");
