@@ -22,8 +22,8 @@ hr {
 }
 
 .tile {
-    width: 47px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     border: 1px solid #2b2b2b;
     margin: 0 auto;
 
@@ -80,7 +80,7 @@ hr {
 #heart {
     position: absolute;
     top: 215px;
-    right: 200px;
+    right: 100px;
     width: 320px;
     height: 64px;
     display: flex;
@@ -90,7 +90,7 @@ hr {
 label {
     position: absolute;
     top: 190px;
-    right: 200px;
+    right: 100px;
     width: 320px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: x-large;
@@ -100,7 +100,7 @@ label {
 #mistakes {
     position: absolute;
     top: 130px;
-    right: 200px;
+    right: 100px;
     display: flex;
     flex-wrap: wrap;
     width: 320px;
@@ -164,7 +164,7 @@ label {
 #time-header {
     position: absolute;
     top: 90px;
-    right: 460px;
+    right: 360px;
     display: flex;
     flex-wrap: wrap;
     width: 60px;
@@ -175,7 +175,7 @@ label {
 #timer {
     position: absolute;
     top: 90px;
-    right: 185px;
+    right: 85px;
     display: flex;
     flex-wrap: wrap;
     width: 270px;
