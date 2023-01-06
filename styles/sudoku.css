@@ -114,7 +114,7 @@ label {
 #game-over-header-lose {
     position: absolute;
     top: 270px;
-    right: 500px;
+    right: 530px;
     width: 320px;
     height: 50px;
     font-size: xx-large;
@@ -124,7 +124,7 @@ label {
 #game-over-header-win {
     position: absolute;
     top: 240px;
-    right: 500px;
+    right: 530px;
     width: 320px;
     height: 50px;
     font-size: xx-large;
@@ -134,7 +134,7 @@ label {
 #game-over-screen {
     position: absolute;
     top: 90px;
-    right: 435px;
+    right: 465px;
     width: 450px;
     height: 455px;
     background-color: black;
@@ -144,7 +144,7 @@ label {
 #try-again-lose {
     position: absolute;
     top: 345px;
-    right: 500px;
+    right: 530px;
     width: 320px;
     height: 50px;
     color: red;
@@ -154,7 +154,7 @@ label {
 #try-again-win {
     position: absolute;
     top: 345px;
-    right: 500px;
+    right: 530px;
     width: 320px;
     height: 50px;
     color: green;
